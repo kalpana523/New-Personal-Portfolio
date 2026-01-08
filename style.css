@@ -19,7 +19,6 @@
     --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
-/* Dark Mode Variable Overrides */
 body.dark-mode {
     --bg-color: #081b29;
     --text-color: #ededed;
@@ -49,7 +48,6 @@ body {
     align-items: center;
     justify-content: space-between;
     z-index: 100;
-    transition: .5s;
 }
 
 .header.sticky {
@@ -65,40 +63,12 @@ body {
 
 .navbar a {
     font-size: 1.7rem;
-    color: var(--white-color);
+    color: var(--text-color); /* Changed to text-color for visibility */
     font-weight: 500;
     margin-left: 3.5rem;
-    transition: .3s;
 }
 
-.header.sticky .navbar a {
-    color: var(--text-color);
-}
-
-.navbar a.active,
-.header.sticky .navbar a.active {
-    color: var(--main-color);
-}
-
-#darkMode-icon {
-    font-size: 2.4rem;
-    color: var(--white-color);
-    cursor: pointer;
-    margin-left: 3rem;
-}
-
-.header.sticky #darkMode-icon {
-    color: var(--text-color);
-}
-
-#menu-icon {
-    font-size: 3.6rem;
-    color: var(--text-color);
-    display: none;
-    cursor: pointer;
-}
-
-/* SECTIONS */
+/* HOME SECTION */
 section {
     min-height: 100vh;
     padding: 10rem 7% 2rem;
@@ -111,55 +81,28 @@ section {
 }
 
 .home-content {
-    max-width: 60rem;
+    max-width: 55rem;
     z-index: 10;
-}
-
-.home-content h3 {
-    font-size: 3.2rem;
-    font-weight: 700;
 }
 
 .home-content h1 {
     font-size: 5.6rem;
-    font-weight: 700;
-    margin: .3rem 0;
+    line-height: 1.2;
 }
 
 .home-content p {
     font-size: 1.6rem;
-    max-width: 50rem;
+    margin: 2rem 0;
 }
 
-.social-media a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 4rem;
-    height: 4rem;
-    background: transparent;
-    border: .2rem solid var(--main-color);
-    border-radius: 50%;
-    font-size: 2rem;
-    color: var(--main-color);
-    margin: 2.5rem 1.5rem 3rem 0;
-    transition: .5s ease;
-}
-
-.social-media a:hover {
-    background: var(--main-color);
-    color: var(--white-color);
-}
-
-.btn {
-    display: inline-block;
-    padding: 1.2rem 2.8rem;
-    background: var(--main-color);
-    border-radius: .6rem;
-    font-size: 1.6rem;
-    color: var(--white-color);
-    font-weight: 600;
-    transition: .5s ease;
+/* REDUCED IMAGE SIZE */
+.home-img img {
+    position: absolute;
+    bottom: 0;
+    right: 8%;
+    width: 22%; /* Reduced Image Size */
+    pointer-events: none;
+    z-index: 5;
 }
 
 /* PROFESSION ANIMATION */
@@ -187,7 +130,6 @@ section {
     animation: professionRotate 15s ease-out infinite;
 }
 
-/* This creates the rotating effect for your skills */
 @keyframes professionRotate {
     0%, 20% { transform: rotate(0deg); }
     25%, 45% { transform: rotate(-90deg); }
@@ -216,40 +158,11 @@ section {
     border-radius: 50%;
 }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 0;
-    height: 0;
-    border-top: 384px solid var(--main-color);
-    border-right: 384px solid var(--main-color);
-    border-bottom: 384px solid var(--main-color);
-    border-left: 384px solid transparent;
-}
-
-.home-img img {
-    position: absolute;
-    bottom: 0;
-    right: 5%;
-    width: 30%; /* Kept within view */
-    pointer-events: none;
-    z-index: 5;
-}
-
-/* RESPONSIVE BREAKPOINTS */
-@media (max-width: 1200px) {
-    html { font-size: 55%; }
-    .home-img img { width: 35%; right: 2%; }
-}
-
+/* RESPONSIVE */
 @media (max-width: 991px) {
-    .header { padding: 2rem 3%; }
-    section { padding: 10rem 3% 2rem; }
-    .home-img img { display: none; } /* Better UI for mobile */
+    .home-img img { display: none; }
     .profession-container { display: none; }
-    .home-content { max-width: 100%; text-align: center; margin: 0 auto; }
-    .home-content p { margin: 0 auto; }
+    .home-content { text-align: center; max-width: 100%; }
 }
 
 @media (max-width: 768px) {
@@ -259,10 +172,8 @@ section {
         top: 100%;
         left: 0;
         width: 100%;
-        padding: 1rem 3%;
         background: var(--bg-color);
         display: none;
     }
     .navbar.active { display: block; }
-    .navbar a { display: block; font-size: 2rem; margin: 3rem 0; color: var(--text-color); }
 }
