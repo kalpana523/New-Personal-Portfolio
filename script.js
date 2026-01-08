@@ -1,6 +1,6 @@
 // menu icon navbar
-let menuIcon=document.querySelector('#menu-icon');
-let navbar=document.querySelector('.navbar');
+let menuIcon = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar');
 
 menuIcon.onclick = () => {
     menuIcon.classList.toggle('bx-x');
@@ -18,28 +18,24 @@ window.onscroll = () => {
         let height = sec.offsetHeight;
         let id = sec.getAttribute('id');
 
-        if (top >= offset && top <offset + height) {
+        if (top >= offset && top < offset + height) {
             navLinks.forEach(links => {
                 links.classList.remove('active');
+                // Added quotes around id to prevent selector errors
                 document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
             });
-        };
+        }
     });
-
 
     // sticky navbar
     let header = document.querySelector('.header');
-
     header.classList.toggle('sticky', window.scrollY > 100);
-
-
 
     // remove menu icon navbar when click navbar link (scroll)
     menuIcon.classList.remove('bx-x');
     navbar.classList.remove('active');
-
-
 };
+
 // swiper
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
@@ -55,3 +51,11 @@ var swiper = new Swiper(".mySwiper", {
         prevEl: ".swiper-button-prev",
     },
 });
+
+// dark light mode
+let darkModeIcon = document.querySelector('#darkMode-icon');
+
+darkModeIcon.onclick = () => {
+    darkModeIcon.classList.toggle('bx-sun');
+    document.body.classList.toggle('dark-mode');
+};
