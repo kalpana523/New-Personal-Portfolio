@@ -59,32 +59,3 @@ var swiper = new Swiper(".mySwiper", {
     },
 });
 
-// ... Keep Menu and Dark Mode logic ...
-
-// Swiper logic - Specifically targeting the testimonial wrapper
-var swiper = new Swiper(".testimonial-wrapper", {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    grabCursor: true,
-    // This connects the dots ONLY to this section
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        dynamicBullets: true,
-    },
-    // Navigation arrows
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-    // Responsive breakpoints
-    breakpoints: {
-        768: {
-            slidesPerView: 2,
-        },
-        1024: {
-            slidesPerView: 1, // Change to 2 or 3 if you want more boxes at once
-        },
-    },
-});
