@@ -177,3 +177,83 @@ section {
     }
     .navbar.active { display: block; }
 }
+/* ... Keep Header and Home styles from previous update ... */
+
+/* TESTIMONIAL SECTION FIX */
+.testimonial-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 5rem 1rem;
+}
+
+.testimonial-container h2 {
+    margin-bottom: 5rem;
+}
+
+.testimonial-wrapper {
+    position: relative;
+    max-width: 90rem;
+    width: 100%;
+    /* Swiper needs overflow hidden to hide other slides */
+    overflow: hidden; 
+    padding: 2rem 1rem 5rem;
+}
+
+/* This is the actual BOX styling from your original code */
+.testimonial-slide {
+    display: flex !important;
+    align-items: center;
+    flex-direction: column;
+    background: var(--bg-color);
+    border-radius: 2rem;
+    box-shadow: 0 .1rem .5rem var(--shadow-color);
+    padding: 3rem 5rem;
+    border-top: .8rem solid var(--main-color);
+    border-bottom: .8rem solid var(--main-color);
+    text-align: center;
+    transition: .5s ease;
+}
+
+.testimonial-slide:hover {
+    transform: translateY(-1rem);
+    box-shadow: 0 .5rem 1.5rem var(--shadow-color);
+}
+
+.testimonial-slide img {
+    width: 14rem;
+    height: 14rem;
+    object-fit: cover;
+    border-radius: 50%;
+    border: .5rem solid var(--bg-color);
+    outline: .5rem solid var(--main-color);
+    margin-bottom: 2rem;
+}
+
+.testimonial-slide h3 {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+}
+
+.testimonial-slide p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+
+/* Pagination Dots Styling */
+.swiper-pagination-bullet {
+    background: var(--text-color) !important;
+    opacity: 0.3;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--main-color) !important;
+    opacity: 1;
+}
+
+/* Remove the specific 4 dots issue at bottom of home */
+.home .swiper-pagination {
+    display: none !important;
+}
+
