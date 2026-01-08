@@ -19,6 +19,13 @@
     --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
+/* Dark Mode Variable Overrides */
+body.dark-mode {
+    --bg-color: #081b29;
+    --text-color: #ededed;
+    --shadow-color: rgba(0, 0, 0, 0.7);
+}
+
 html {
     font-size: 62.5%;
     overflow-x: hidden;
@@ -27,9 +34,10 @@ html {
 body {
     background: var(--bg-color);
     color: var(--text-color);
+    transition: .5s ease;
 }
 
-/* HEADER & NAVBAR */
+/* HEADER */
 .header {
     position: fixed;
     top: 0;
@@ -90,31 +98,21 @@ body {
     cursor: pointer;
 }
 
-/* SECTIONS GENERAL */
+/* SECTIONS */
 section {
     min-height: 100vh;
     padding: 10rem 7% 2rem;
 }
 
-.heading {
-    font-size: 4.5rem;
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-span {
-    color: var(--main-color);
-}
-
-/* HOME SECTION */
 .home {
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .home-content {
     max-width: 60rem;
-    z-index: 1;
+    z-index: 10;
 }
 
 .home-content h3 {
@@ -130,7 +128,7 @@ span {
 
 .home-content p {
     font-size: 1.6rem;
-    max-width: 60rem; /* Fixed: used max-width instead of width */
+    max-width: 50rem;
 }
 
 .social-media a {
@@ -161,14 +159,7 @@ span {
     font-size: 1.6rem;
     color: var(--white-color);
     font-weight: 600;
-    border: .2rem solid transparent;
     transition: .5s ease;
-}
-
-.btn:hover {
-    background: transparent;
-    color: var(--main-color);
-    border-color: var(--main-color);
 }
 
 /* PROFESSION ANIMATION */
@@ -193,6 +184,16 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: professionRotate 15s ease-out infinite;
+}
+
+/* This creates the rotating effect for your skills */
+@keyframes professionRotate {
+    0%, 20% { transform: rotate(0deg); }
+    25%, 45% { transform: rotate(-90deg); }
+    50%, 70% { transform: rotate(-180deg); }
+    75%, 95% { transform: rotate(-270deg); }
+    100% { transform: rotate(-360deg); }
 }
 
 .profession {
@@ -230,181 +231,29 @@ span {
 .home-img img {
     position: absolute;
     bottom: 0;
-    right: 7%;
-    width: 35%;
+    right: 5%;
+    width: 30%; /* Kept within view */
     pointer-events: none;
+    z-index: 5;
 }
 
-/* ABOUT SECTION */
-.about {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4rem;
-}
-
-.about-img img {
-    width: 40vw;
-}
-
-.about-content {
-    max-width: 60rem;
-}
-
-.about-content h2 {
-    text-align: left;
-}
-
-.about-content p {
-    font-size: 1.6rem;
-    margin: 2rem 0 3rem;
-}
-
-/* SERVICES SECTION */
-.services-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
-
-.services-box {
-    flex: 1 1 30rem;
-    background: var(--bg-color);
-    padding: 3rem 2rem 4rem;
-    border-radius: 2rem;
-    box-shadow: 0 .1rem .5rem var(--shadow-color);
-    text-align: center;
-    border-top: .6rem solid var(--main-color);
-    border-bottom: .6rem solid var(--main-color);
-    transition: .5s ease;
-}
-
-.services-box:hover {
-    transform: scale(1.02);
-}
-
-/* PORTFOLIO SECTION */
-.portfolio-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
-}
-
-.portfolio-box {
-    position: relative;
-    border-radius: 2rem;
-    box-shadow: 0 0 1rem var(--shadow-color);
-    overflow: hidden;
-    display: flex;
-}
-
-.portfolio-box img {
-    width: 100%;
-    transition: .5s ease;
-}
-
-.portfolio-box:hover img {
-    transform: scale(1.1);
-}
-
-.portfolio-layer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, .1), var(--main-color));
-    color: var(--white-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    padding: 0 4rem;
-    opacity: 0;
-    transition: .5s ease;
-}
-
-.portfolio-box:hover .portfolio-layer {
-    opacity: 1;
-}
-
-/* TESTIMONIALS */
-.testimonial-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.testimonial-wrapper {
-    width: 100%;
-    max-width: 90rem;
-}
-
-/* CONTACT SECTION */
-.contact form {
-    max-width: 70rem;
-    margin: 1rem auto;
-    text-align: center;
-}
-
-.contact form .input-box {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.contact form .input-box input,
-.contact form textarea {
-    width: 100%;
-    padding: 1.5rem;
-    font-size: 1.6rem;
-    background: var(--bg-color);
-    border-radius: .8rem;
-    margin: .7rem 0;
-    box-shadow: 0 .1rem .5rem var(--shadow-color);
-}
-
-.contact form .input-box input {
-    width: 49%;
-}
-
-/* FOOTER */
-.footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 7%;
-    background: var(--main-color);
-}
-
-.footer-text p {
-    font-size: 1.6rem;
-    color: var(--white-color);
-}
-
-/* BREAKPOINTS / RESPONSIVE DESIGN */
-
+/* RESPONSIVE BREAKPOINTS */
 @media (max-width: 1200px) {
     html { font-size: 55%; }
-    .home-img img { width: 40%; }
+    .home-img img { width: 35%; right: 2%; }
 }
 
 @media (max-width: 991px) {
     .header { padding: 2rem 3%; }
     section { padding: 10rem 3% 2rem; }
-    .home-img img { display: none; }
+    .home-img img { display: none; } /* Better UI for mobile */
     .profession-container { display: none; }
-    .home-content { max-width: 100%; text-align: center; }
-    .home { justify-content: center; }
+    .home-content { max-width: 100%; text-align: center; margin: 0 auto; }
+    .home-content p { margin: 0 auto; }
 }
 
 @media (max-width: 768px) {
     #menu-icon { display: block; }
-    
     .navbar {
         position: absolute;
         top: 100%;
@@ -412,38 +261,8 @@ span {
         width: 100%;
         padding: 1rem 3%;
         background: var(--bg-color);
-        border-top: .1rem solid rgba(0,0,0,.2);
-        display: none; /* Controlled by JS */
+        display: none;
     }
-
     .navbar.active { display: block; }
-
-    .navbar a {
-        display: block;
-        font-size: 2rem;
-        margin: 3rem 0;
-        color: var(--text-color);
-    }
-
-    .header.sticky .navbar a { color: var(--text-color); }
-
-    .about { flex-direction: column-reverse; text-align: center; }
-    .about-img img { width: 70%; margin-top: 4rem; }
-    .about-content h2 { text-align: center; }
-}
-
-@media (max-width: 450px) {
-    html { font-size: 50%; }
-    .contact form .input-box input { width: 100%; }
-}
-/* Dark Mode Colors */
-.dark-mode {
-    --bg-color: #0b061f;
-    --text-color: #fdfdfd;
-    --shadow-color: rgba(0, 0, 0, .7);
-}
-
-/* Ensure the moon/sun icon stays visible in dark mode */
-.dark-mode .header.sticky #darkMode-icon {
-    color: var(--text-color);
+    .navbar a { display: block; font-size: 2rem; margin: 3rem 0; color: var(--text-color); }
 }
