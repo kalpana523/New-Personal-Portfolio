@@ -436,3 +436,14 @@ span {
     html { font-size: 50%; }
     .contact form .input-box input { width: 100%; }
 }
+/* Dark Mode Colors */
+.dark-mode {
+    --bg-color: #0b061f;
+    --text-color: #fdfdfd;
+    --shadow-color: rgba(0, 0, 0, .7);
+}
+
+/* Ensure the moon/sun icon stays visible in dark mode */
+.dark-mode .header.sticky #darkMode-icon {
+    color: var(--text-color);
+}
