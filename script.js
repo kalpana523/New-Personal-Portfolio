@@ -7,6 +7,14 @@ menuIcon.onclick = () => {
     navbar.classList.toggle('active');
 };
 
+// dark light mode
+let darkModeIcon = document.querySelector('#darkMode-icon');
+
+darkModeIcon.onclick = () => {
+    darkModeIcon.classList.toggle('bx-sun');
+    document.body.classList.toggle('dark-mode');
+};
+
 // scroll sections active link
 let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('header nav a');
@@ -21,7 +29,6 @@ window.onscroll = () => {
         if (top >= offset && top < offset + height) {
             navLinks.forEach(links => {
                 links.classList.remove('active');
-                // Added quotes around id to prevent selector errors
                 document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
             });
         }
@@ -51,11 +58,3 @@ var swiper = new Swiper(".mySwiper", {
         prevEl: ".swiper-button-prev",
     },
 });
-
-// dark light mode
-let darkModeIcon = document.querySelector('#darkMode-icon');
-
-darkModeIcon.onclick = () => {
-    darkModeIcon.classList.toggle('bx-sun');
-    document.body.classList.toggle('dark-mode');
-};
